@@ -1,0 +1,30 @@
+import heapq
+from collections import defaultdict 
+class Solution():
+    def mostBooked(self, n, meetings):
+        booked = []
+        free = list(range(n))
+        meetings.sort()
+        freq = defaultdict(int)
+
+        for start, end in meetings:
+            while booked and booked[0][0]<=start:
+                _, room = heapq.heappop(booked)
+                heapq.heappush(free,room)
+            
+            if free:
+                room = heapq.heappop(free)
+                heapq.heappush(booked,[end,room])
+            
+            else:
+                r,room = heapq.heappop(booked)
+                heapq.heappush(booked,[r+end-start,room])
+            
+            freq[room]+=1
+
+        return max(freq,key=freq.get)
+
+m = [[0,10],[1,5],[2,7],[3,4]]
+n = 2
+s1 = Solution()
+print(s1.mostBooked(n,m))

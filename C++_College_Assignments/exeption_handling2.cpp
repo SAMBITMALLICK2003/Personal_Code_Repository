@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <stdexcept>
 using namespace std;
 
 void calculateRoots(double a, double b, double c) {

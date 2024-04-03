@@ -15,7 +15,7 @@ void calculateRoots(double a, double b, double c) {
     double root1 = (-b + sqrt(discriminant)) / (2 * a);
     double root2 = (-b - sqrt(discriminant)) / (2 * a);
 
-    std::cout << "The roots are " << root1 << " and " << root2 << std::endl;
+    cout << "The roots are " << root1 << " and " << root2 << endl;
 }
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
         calculateRoots(1, -3, 2);
         calculateRoots(1, 0, 1);
     } catch (const exception& e) {
-        std::cout << "Caught an exception: " << e.what() << std::endl;
+        cout << "Caught an exception: " << e.what() << endl;
     }
 
     return 0;

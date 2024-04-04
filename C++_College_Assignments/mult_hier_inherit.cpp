@@ -9,7 +9,7 @@ class Person {
 
     public:
         Person(string name, int age) : name(name), age(age) {}
-        virtual void PrintDetails() = 0;
+        virtual void PrintDetails() ;
 };
 class Employee : public Person {
     private:

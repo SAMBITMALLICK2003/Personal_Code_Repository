@@ -99,7 +99,8 @@ int main()
     s1.push(7);
     s1.push(8);
     s1.display();
-    stack s2=s1;
+    stack s2;
+    s2=s1;
     s1.~stack();
     cout<<s2[2]<<endl;
     return 0;

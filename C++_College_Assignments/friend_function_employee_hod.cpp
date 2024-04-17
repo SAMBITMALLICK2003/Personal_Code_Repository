@@ -9,6 +9,12 @@ class hod
         hod(string,string,int,int);
         void show_details();
         void enhance_sal(employee&,int);
+        friend class employee;
+        void show(employee& ob)
+        {
+            cout<<ob.name<<endl;
+        
+        }
 };
 class employee
 {
@@ -18,6 +24,11 @@ class employee
         employee(string,string,string,int,int);
         void show_details();
         friend void hod::enhance_sal(employee&,int);
+        friend class hod;
+        void show(hod& ob)
+        {
+            cout<<ob.name<<endl;
+        }
 };
 employee::employee(string a,string b,string c,int d,int e)
 {
@@ -56,5 +67,7 @@ int main()
     hod h1("Dr. Prabir Banerjee","ECE",10,20000);
     h1.enhance_sal(e1,5000);
     e1.show_details();
+    e1.show(h1);
+    h1.show(e1);
     return 0;
 }

@@ -12,7 +12,7 @@ public:
     Length operator()(int,int);
     // bool operator<(Length&);
     // Length operator++();
-    // Length operator++(int);
+    Length operator++(int);
     void display();
 };
 Length Length::operator()(int a,int b)
@@ -44,17 +44,17 @@ void Length::display()
 //     return Length(feet, inches);
 // }
 
-// Length Length::operator++(int)
-// {
-//     Length temp(feet, inches);
-//     inches++;
-//     if (inches >= 12)
-//     {
-//         inches -= 12;
-//         feet++;
-//     }
-//     return temp;
-// }
+Length Length::operator++(int)
+{
+    Length temp(feet, inches);
+    inches++;
+    if (inches >= 12)
+    {
+        inches -= 12;
+        feet++;
+    }
+    return temp;
+}
 
 Length::Length()
 {
@@ -81,7 +81,7 @@ int main()
 {
     Length l1(5, 6); // 5 feet 6 inches
     Length l2;
-    l2=l1(10,25);
+    l2=l1++;
     l1.display();
     l2.display();
     return 0;

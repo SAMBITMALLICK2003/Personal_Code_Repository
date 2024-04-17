@@ -11,6 +11,11 @@ class stack
         int pop();
         void display();
         int & operator[](int);
+        ~stack()
+        {
+            delete[] arr;
+        }
+        stack(stack&);
 };
 int& stack::operator[](int a)
 {
@@ -76,16 +81,16 @@ void stack:: display()
     }
 }
 
-// stack:: stack(stack& ob)
-// {
-//     top=ob.top;
-//     size=ob.size;
-//     arr=new int[size];
-//     for(int i=0;i<=top;i++)
-//     {
-//         arr[i]=ob.arr[i];
-//     }
-// }
+stack:: stack(stack& ob)
+{
+    top=ob.top;
+    size=ob.size;
+    arr=new int[size];
+    for(int i=0;i<=top;i++)
+    {
+        arr[i]=ob.arr[i];
+    }
+}
 
 int main()
 {
@@ -94,6 +99,8 @@ int main()
     s1.push(7);
     s1.push(8);
     s1.display();
-    cout<<s1[1]<<endl;
+    stack s2=s1;
+    s1.~stack();
+    cout<<s2[2]<<endl;
     return 0;
 }

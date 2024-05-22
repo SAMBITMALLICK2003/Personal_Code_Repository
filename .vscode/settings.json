@@ -8,6 +8,8 @@
     "editor.quickSuggestionsDelay": 100,
     "files.associations": {
         "stdexcept": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "new": "cpp"
     }
 }
